@@ -46,10 +46,16 @@ extension AudioPlayer {
             if let realIndex = queue?.queue.firstIndex(of: items[index]) {
                 queue?.nextPosition = realIndex
             }
-            currentItem = queue?.nextItem()
+            currentItem = items[index % items.count]
         } else {
             stop()
             queue = nil
+        }
+    }
+    
+    public func playItem(at index: Int) {
+        if let items = items {
+            currentItem = items[index % items.count]
         }
     }
 

@@ -135,8 +135,8 @@ class AudioItemQueue {
         }
 
         while nextPosition < queue.count {
+            nextPosition = (nextPosition + 1) % queue.count
             let item = queue[nextPosition]
-            nextPosition += 1
 
             if shouldConsiderItem(item: item) {
                 historic.append(item)
